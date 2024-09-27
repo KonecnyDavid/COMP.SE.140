@@ -6,11 +6,15 @@ services:
       - "8199:3000"
     networks:
       - service-network
+    depends_on:
+      service-2:
+        condition: service_started
   service-2:
     build: ./src/service-2/
     container_name: service-2
     networks:
       - service-network
 networks:
+  # specifying the network explicitly is not neccessary, default can be used for this purpose
   service-network:
     name: service-network
