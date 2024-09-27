@@ -1,0 +1,18 @@
+Containers share kernel and system resources with the host. Unlike virtual 
+machines, the containers leverage the host's kernel for system calls and 
+resource access. This makes containers more efficient and faster to start and 
+stop, making them more lightweight than virtual machines. 
+
+Containers can also be configured to share the same network interface with the 
+host. Sharing the same network interface with the host may allow them to share 
+the host's IP address. 
+
+Containers can also share volumes with the host to ensure data persistence and 
+facilitate data exchange between the host and containers. By mounting volume to 
+a container, data can persist across restarts or even deletion of the 
+container. 
+
+Containers can also be given permission to access host devices such as GPUs and 
+USB devices. This enables the sharing of particular hardware resources from the 
+hosts to the containers, allowing for efficient utilization of hardware 
+resources across the system.
