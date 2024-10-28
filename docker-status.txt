@@ -1,10 +1,14 @@
-CONTAINER ID   IMAGE                 COMMAND                  CREATED         STATUS         PORTS                    NAMES
-695dcb574176   compse140-service-1   "docker-entrypoint.s…"   4 minutes ago   Up 2 minutes   0.0.0.0:8199->3000/tcp   service-1
-15642b35f672   compse140-service-2   "dotnet service-2.dll"   4 minutes ago   Up 2 minutes                            service-2
+CONTAINER ID   IMAGE                 COMMAND                  CREATED         STATUS         PORTS                  NAMES
+10a08878263e   compse140-nginx       "/docker-entrypoint.…"   8 minutes ago   Up 8 minutes   0.0.0.0:8081->80/tcp   compse140-nginx-1
+2c4149d3f2f9   compse140-service-1   "docker-entrypoint.s…"   2 days ago      Up 2 days                             compse140-service-1-4
+329c20075472   compse140-service-1   "docker-entrypoint.s…"   2 days ago      Up 2 days                             compse140-service-1-3
+c5d406ce683e   compse140-service-1   "docker-entrypoint.s…"   2 days ago      Up 2 days                             compse140-service-1-2
+774ce0e79dd0   compse140-service-2   "dotnet service-2.dll"   4 weeks ago     Up 2 days                             service-2
 
 NETWORK ID     NAME                                   DRIVER    SCOPE
-b4f37546d1bc   bridge                                 bridge    local
-53dc743e432d   compse140_default                      bridge    local
+9d4e150762df   5d4b550e-34ed-4fb9-af10-c6d8640b549c   bridge    local
+c3469b622209   bridge                                 bridge    local
+df45da84e11b   db_default                             bridge    local
 bffda6059dde   host                                   host      local
 e97d61ced756   none                                   null      local
-bbce82b685f1   service-network                        bridge    local
+aedf5aaacbe8   service-network                        bridge    local

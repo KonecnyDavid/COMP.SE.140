@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Assignment 4</title>
+  </head>
+  <body>
+    <button id="button" style="display: block;">REQUEST</button>
+    <textarea id="textarea" rows="20" style="width: 100%;"></textarea>
+    <div id="error" style="display: none; background: #cc0000; color: #000; padding: 1rem; border-radius: 6px;">
+      Request throttled
+    </div>
+    <script>
+      const button = document.getElementById("button");
+      const textarea = document.getElementById("textarea");
+      const error = document.getElementById("error");
+
+      button.onclick = async () => {
+          const response = await fetch("/api");
+          if (response.status === 429) {
+            error.style.display = "block";
+            return;
+          }
+          error.style.display = "none";
+
+          const data = await response.text();
+          textarea.innerHTML = data;
+      }
+    </script>
+  </body>
+</html>

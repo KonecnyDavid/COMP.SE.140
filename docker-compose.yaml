@@ -1,19 +1,27 @@
 services:
   service-1:
     build: ./src/service-1/
-    container_name: service-1
-    ports:
-      - "8199:3000"
     networks:
       - service-network
     depends_on:
       service-2:
         condition: service_started
+    deploy:
+      mode: replicated
+      replicas: 3
   service-2:
     build: ./src/service-2/
     container_name: service-2
     networks:
       - service-network
+  nginx:
+    build: ./src/nginx/
+    ports:
+      - "8081:80"
+    networks:
+      - service-network
+    depends_on:
+      - service-1
 networks:
   # specifying the network explicitly is not neccessary, default can be used for this purpose
   service-network:
