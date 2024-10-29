@@ -6,17 +6,19 @@
     <title>Assignment 4</title>
   </head>
   <body>
-    <button id="button" style="display: block;">REQUEST</button>
+    <button id="request" style="display: block;">REQUEST</button>
+    <button id="stop" style="display: block;">STOP</button>
     <textarea id="textarea" rows="20" style="width: 100%;"></textarea>
     <div id="error" style="display: none; background: #cc0000; color: #000; padding: 1rem; border-radius: 6px;">
       Request throttled
     </div>
     <script>
-      const button = document.getElementById("button");
+      const request = document.getElementById("request");
+      const stop = document.getElementById("stop");
       const textarea = document.getElementById("textarea");
       const error = document.getElementById("error");
 
-      button.onclick = async () => {
+      request.onclick = async () => {
           const response = await fetch("/api");
           if (response.status === 429) {
             error.style.display = "block";
@@ -26,6 +28,10 @@
 
           const data = await response.text();
           textarea.innerHTML = data;
+      }
+
+      stop.onclick = async () => {
+          await fetch("/stop");
       }
     </script>
   </body>

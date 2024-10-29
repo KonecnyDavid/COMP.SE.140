@@ -4,8 +4,7 @@ services:
     networks:
       - service-network
     depends_on:
-      service-2:
-        condition: service_started
+      - service-2
     deploy:
       mode: replicated
       replicas: 3
@@ -14,6 +13,14 @@ services:
     container_name: service-2
     networks:
       - service-network
+  monitor:
+    build: ./src/monitor/
+    networks:
+      - service-network
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # necessary to bind host docker socket to controll docker from inside of containers
+    depends_on:
+      - service-1
   nginx:
     build: ./src/nginx/
     ports:
