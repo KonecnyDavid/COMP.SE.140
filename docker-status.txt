@@ -1,5 +1,5 @@
 CONTAINER ID   IMAGE                 COMMAND                  CREATED          STATUS          PORTS                  NAMES
-3cd31d1cc3fb   compse140-nginx       "/docker-entrypoint.…"   14 minutes ago   Up 11 seconds   0.0.0.0:8081->80/tcp   compse140-nginx-1
+3cd31d1cc3fb   compse140-nginx       "/docker-entrypoint.…"   14 minutes ago   Up 11 seconds   0.0.0.0:8198->80/tcp   compse140-nginx-1
 75961b0e4665   compse140-monitor     "docker-entrypoint.s…"   16 minutes ago   Up 11 seconds                          compse140-monitor-1
 0c5a313b23b4   compse140-service-1   "docker-entrypoint.s…"   16 minutes ago   Up 11 seconds                          compse140-service-1-4
 9ea5e645f95a   compse140-service-1   "docker-entrypoint.s…"   16 minutes ago   Up 11 seconds                          compse140-service-1-3
